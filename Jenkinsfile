@@ -5,6 +5,13 @@ pipeline {
         DOCKER_IMAGE_NAME = "bhavukm/train-schedule"
     }
     stages {
+        stage('Checkout') {
+            steps {
+              git credentialsId: 'myGithub', url: 'https://github.com/warlog7997/cicd-pipeline-train-schedule-autodeploy.git'
+            }
+        }
+        
+        
         stage('Build') {
             steps {
                 echo 'Running build automation'
